@@ -37,7 +37,8 @@ with open('data.csv', 'w', encoding='utf8', newline='') as f:
         title = (soup.find("h1",{"class": "pw-post-title"}).text if soup.find("h1",{"class": "pw-post-title"}) else "" )
         descs = list(map(lambda x:x.text,soup.find_all("p",{"class":"pw-post-body-paragraph"})))
         author = (soup.find("div",{"class":"pw-author"}).text if soup.find("div",{"class": "pw-author"}) else "" )
-
+        
+        # Printing all the data in data.csv file
         if author and title and descs:
             info = [ url,title, descs, author]
             thewriter.writerow(info)
@@ -46,5 +47,3 @@ with open('data.csv', 'w', encoding='utf8', newline='') as f:
 #    if author and title and descs:
 #        print(f"\n\nAuthor : {author}\nTitle: {title}\nDesc len :{len(descs)}\n\n") 
 #    time.sleep(2)
-
-
